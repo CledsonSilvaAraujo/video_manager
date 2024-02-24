@@ -27,23 +27,27 @@ func SalvaVideos(c *gin.Context) {
 }
 
 func main() {
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
+	// r := gin.Default()
+	server := gin.New()
+	server.Use(gin.Recovery(), gin.Logger())
+
+	server.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "Hello, Gin!",
 		})
 	})
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Pong, Gin!",
-		})
-	})
-	r.GET("/alunos", ExibeTodosAlunos)
-	// r.GET("/videos", ExibeVideos)
-	r.GET("/videos", func(c *gin.Context) {
+	// server.GET("/ping", func(c *gin.Context) {
+	// 	c.JSON(200, gin.H{
+	// 		"message": "Pong, Gin!",
+	// 	})
+	// })
+
+	server.GET("/videos", func(c *gin.Context) {
 		c.JSON(200, videoController.FindAll())
 	})
-	r.POST("/videos", SalvaVideos)
+	server.POST("/videos", func(c *gin.Context) {
+		c.JSON(200, videoController.Save(c))
+	})
 
-	r.Run(":8080") // listen and serve on 0.0.0.0:8080
+	server.Run(":8080") // listen and serve on 0.0.0.0:8080
 }
