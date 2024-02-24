@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/CledsonSilvaAraujo/task-manager/controller"
-	"github.com/CledsonSilvaAraujo/task-manager/service"
+	"github.com/CledsonSilvaAraujo/video-manager/controller"
+	"github.com/CledsonSilvaAraujo/video-manager/service"
 	"github.com/gin-gonic/gin"
 )
 

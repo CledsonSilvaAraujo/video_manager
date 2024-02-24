@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/CledsonSilvaAraujo/task-manager/entity"
+	"github.com/CledsonSilvaAraujo/video-manager/entity"
 )
 
 type VideoService interface {

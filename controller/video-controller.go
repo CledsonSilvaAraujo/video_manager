@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"github.com/CledsonSilvaAraujo/task-manager/entity"
-	"github.com/CledsonSilvaAraujo/task-manager/service"
+	"github.com/CledsonSilvaAraujo/video-manager/entity"
+	"github.com/CledsonSilvaAraujo/video-manager/service"
 	"github.com/gin-gonic/gin"
 )
 

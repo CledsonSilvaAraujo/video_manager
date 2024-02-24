@@ -1,4 +1,4 @@
-module github.com/CledsonSilvaAraujo/task-manager
+module github.com/CledsonSilvaAraujo/video-manager
 
 go 1.18
 
