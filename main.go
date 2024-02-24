@@ -8,6 +8,7 @@ import (
 	"github.com/CledsonSilvaAraujo/video-manager/middlewares"
 	"github.com/CledsonSilvaAraujo/video-manager/service"
 	"github.com/gin-gonic/gin"
+	gindump "github.com/tpkeeper/gin-dump"
 )
 
 var (
@@ -22,7 +23,8 @@ func setupLogOutput() {
 func main() {
 	setupLogOutput()
 	server := gin.New()
-	server.Use(gin.Recovery(), middlewares.Logger())
+	server.Use(gin.Recovery(), middlewares.Logger(),
+		middlewares.BasicAuth(), gindump.Dump())
 
 	server.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
